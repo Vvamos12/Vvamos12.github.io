@@ -1,0 +1,331 @@
+/* Minjae Kim — personal homepage
+   Always light theme. Notion-inspired, quiet typography. */
+
+:root {
+  color-scheme: light only;
+  --bg: #ffffff;
+  --text: #37352f;
+  --text-soft: #5b5a55;
+  --muted: #8a8781;
+  --rule: rgba(55, 53, 47, 0.10);
+  --hover: #1a6b4f;
+  --accent: #2f7d5d;
+  --measure: 1120px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+          "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: -0.003em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- cover ---------- */
+
+.cover {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #e9f2f4;
+}
+
+.cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* ---------- page shell ---------- */
+
+.page {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 40px 72px;
+}
+
+.title-block {
+  padding: 30px 0 34px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 44px;
+}
+
+.page-icon {
+  font-size: 46px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1f1e1b;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ---------- two columns ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 65fr) minmax(0, 32fr);
+  column-gap: clamp(32px, 4.5vw, 64px);
+  align-items: start;
+}
+
+.col-main { min-width: 0; }
+.col-side { min-width: 0; }
+
+/* ---------- headings ---------- */
+
+h2 {
+  margin: 46px 0 16px;
+  padding-bottom: 7px;
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: #26251f;
+  border-bottom: 1px solid var(--rule);
+}
+
+.col-side h2 {
+  margin-top: 38px;
+  font-size: 18px;
+}
+
+section:first-of-type h2 { margin-top: 0; }
+
+h3 {
+  margin: 26px 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- text ---------- */
+
+p { margin: 0 0 12px; }
+
+section#about p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-soft);
+  max-width: 68ch;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+  transition: color .16s ease, border-color .16s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--hover);
+  border-bottom-color: var(--hover);
+  outline: none;
+}
+
+/* ---------- publication lists ---------- */
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub-list { margin: 0 0 4px; }
+
+.pub {
+  position: relative;
+  padding: 0 0 16px 18px;
+  margin-bottom: 4px;
+}
+
+.pub::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(55, 53, 47, 0.28);
+}
+
+.pub-title {
+  margin: 0 0 3px;
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: #2b2a26;
+}
+
+.pub-title a { border-bottom-color: rgba(55, 53, 47, 0.22); }
+
+.pub-authors {
+  margin: 0 0 2px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.pub-meta {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.tag {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+/* ---------- plain item lists (projects, education, …) ---------- */
+
+.plain-list li {
+  padding: 0 0 12px 0;
+  margin: 0;
+}
+
+.plain-list .item {
+  display: block;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #2b2a26;
+}
+
+.plain-list .item-meta {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.col-side .plain-list .item { font-size: 14px; }
+.col-side .plain-list .item-meta { font-size: 13px; }
+
+.simple-list li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.simple-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(55, 53, 47, 0.24);
+}
+
+/* ---------- side column ---------- */
+
+.profile {
+  margin: 0 0 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.profile img {
+  display: block;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f3f2ef;
+}
+
+.contact-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  padding: 0 0 8px;
+  font-size: 14px;
+}
+
+.contact-list .label {
+  flex: 0 0 58px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
+.contact-list a { border-bottom-color: rgba(55, 53, 47, 0.14); }
+
+/* ---------- footer ---------- */
+
+footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+footer p { margin: 0; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .page { padding: 0 22px 56px; }
+  .cover { height: 190px; }
+  .title-block { padding: 22px 0 26px; margin-bottom: 30px; }
+  .page-icon { font-size: 36px; margin-bottom: 12px; }
+  h1 { font-size: 31px; }
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 8px;
+  }
+  .col-side {
+    margin-top: 8px;
+    padding-top: 4px;
+  }
+  .col-side h2 { margin-top: 34px; }
+  .profile img { width: 132px; height: 132px; }
+  h2 { font-size: 19px; margin-top: 36px; }
+}
+
+@media print {
+  .cover { height: 160px; }
+  a { border-bottom: 0; color: inherit; }
+}
